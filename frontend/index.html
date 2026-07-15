@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing API</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inputs">
+            <input type="text" name="email" id="email">
+            <input type="text" name="nome" id="nome">
+            <input type="text" name="phone" id="phone">
+            <input type="submit" value="enviar" onclick="enviarDados()">
+        </div>
+    </div>
+    <script>
+        const enviarDados = () => {
+            const emailDigitado = document.getElementById("email");
+            const nomeDigitado = document.getElementById("nome");
+            const phoneDigitado = document.getElementById("phone");
+
+            fetch("/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: emailDigitado, // "email" do req.body vai ser o emailDigitado
+                    nome: nomeDigitado, // "nome" do req.body vai ser o nomeDigitado
+                    phone: phoneDigitado // "phone" do req.body vai ser o phoneDigitado
+                })
+            })
+        }
+
+    </script>
+</body>
+
+</html>
