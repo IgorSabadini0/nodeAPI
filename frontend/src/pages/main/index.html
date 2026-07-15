@@ -10,17 +10,17 @@
 <body>
     <div class="container">
         <div class="inputs">
-            <input type="text" name="email" id="email">
-            <input type="text" name="nome" id="nome">
-            <input type="text" name="phone" id="phone">
+            <input type="text" name="email" id="email" placeholder="email">
+            <input type="text" name="nome" id="nome" placeholder="nome">
+            <input type="text" name="phone" id="phone" placeholder="phone">
             <input type="submit" value="enviar" onclick="enviarDados()">
         </div>
     </div>
     <script>
         const enviarDados = () => {
-            const emailDigitado = document.getElementById("email");
-            const nomeDigitado = document.getElementById("nome");
-            const phoneDigitado = document.getElementById("phone");
+            const emailDigitado = document.getElementById("email").value;
+            const nomeDigitado = document.getElementById("nome").value;
+            const phoneDigitado = document.getElementById("phone").value;
 
             fetch("/send", {
                 method: "POST",

@@ -10,14 +10,14 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json()); //habilita o leitor de JSON
 
-const staticPath = path.join(__dirname, '../../fronten/src')
+const staticPath = path.join(__dirname, '../../frontend/src')
 
 app.use(express.static(staticPath));
 
 const port = 3000; //a porta onde vai rodar
 
 app.get("/", (req, res) => {
-    res.redirect("pages/main")
+    res.redirect("pages/main");
 });
 
 app.post("/send", (req, res) => {
@@ -26,7 +26,7 @@ app.post("/send", (req, res) => {
     console.log({ email, nome, phone });
 
     res.status(200).send("OK");
-})
+});
 
 app.listen(port, () => {
     console.log(`Server is running in: http://localhost:${port}`);
